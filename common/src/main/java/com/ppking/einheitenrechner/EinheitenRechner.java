@@ -14,188 +14,505 @@ import com.codename1.ui.util.Resources;
  */
 public class EinheitenRechner extends Lifecycle {
     public static Label label;
+    private static TextField eingabeWert;
+
     @Override
     public void runApp() {
         Form hi = new Form("Hi World", BoxLayout.y());
         Button helloButton = new Button("Hello World");
         hi.add(helloButton);
         helloButton.addActionListener(e -> hello());
-        label=new Label();
+        label = new Label();
         label.setText("IwoassNIX");
         hi.add(label);
         hi.getToolbar().addMaterialCommandToSideMenu("Hello Command",
-        FontImage.MATERIAL_CHECK, 4, e -> hello());
+                FontImage.MATERIAL_CHECK, 4, e -> hello());
         hi.show();
 
     }
 
-    private void metertoKilometer(double meter){
-        double result=0;
-        result=meter/1000;
-        label.setText(result+" km");
+    private void meterToKilometer(double meter) {
+        double result = 0;
+        result = meter / 1000;
+        label.setText(result + " km");
     }
-    private void kilometertometer(double kilometer){
-        double result=0;
-        result=kilometer*1000;
-        label.setText(result+" m");
+
+    private void kilometerTometer(double kilometer) {
+        double result = 0;
+        result = kilometer * 1000;
+        label.setText(result + " m");
     }
-    private void metertoZoll(double meter){
-        double result=0;
-        result=meter*39.37;
-        label.setText(result+" zoll");
+
+    private void meterToZoll(double meter) {
+        double result = 0;
+        result = meter * 39.37;
+        label.setText(result + " zoll");
     }
-    private void zolltoMeter(double zoll){
-        double result=0;
-        result=zoll/39.37;
-        label.setText(result+" zoll");
+
+    private void zollToMeter(double zoll) {
+        double result = 0;
+        result = zoll / 39.37;
+        label.setText(result + " zoll");
     }
-    private void metertoFuß(double meter) {
+
+    private void meterToFuß(double meter) {
         double result = 0;
         result = meter * 3.28084;
         label.setText(result + " fuß");
     }
-    private void fußtoMeter(double fuß){
-        double result=0;
-        result=fuß / 3.28084;
-        label.setText(result+" Meter");
-    }
-    private void metertoYard(double meter){
-        double result=0;
-        result=meter*1.09361;
-        label.setText(result+" km");
-    }
-    private void yardtoMeter(double yard){
-        double result=0;
-        result=yard/1.09361;
-        label.setText(result+" m");
-    }
-    private void metertomillimeter(double meter){
-        double result=0;
-        result=meter*1000;
-        label.setText(result+" mm");
-    }
-    private void millimetertometer(double millimeter){
-        double result=0;
-        result=millimeter/1000;
-        label.setText(result+" m");
-    }
-    private void metertoZentimeter(double meter){
-        double result=0;
-        result=meter*100;
-        label.setText(result+" cm");
-    }
-    private void zentimetertometer(double zentimeter){
-        double result=0;
-        result=zentimeter/100;
-        label.setText(result+" m");
-    }
-    private void metertoDezimeter(double meter){
-        double result=0;
-        result=meter/10;
-        label.setText(result+" dm");
-    }
-    private void Dezimetertometer(double dezimeter) {
+
+    private void fußToMeter(double fuß) {
         double result = 0;
-        result = dezimeter/10;
+        result = fuß / 3.28084;
+        label.setText(result + " Meter");
+    }
+
+    private void meterToYard(double meter) {
+        double result = 0;
+        result = meter * 1.09361;
+        label.setText(result + " km");
+    }
+
+    private void yardToMeter(double yard) {
+        double result = 0;
+        result = yard / 1.09361;
         label.setText(result + " m");
     }
-        private void metertoSeemeile(double meter){
-        double result=0;
-        result=meter*1852;
-        label.setText(result+" seemeile");
+
+    private void meterToMillimeter(double meter) {
+        double result = 0;
+        result = meter * 1000;
+        label.setText(result + " mm");
     }
-    private void seemeiletoMeter(double seemeile){
-        double result=0;
-        result=seemeile/1852;
-        label.setText(result+" meter");
+
+    private void millimeterToMeter(double millimeter) {
+        double result = 0;
+        result = millimeter / 1000;
+        label.setText(result + " m");
     }
-    private void kilometertoZoll(double kilometer){
-        double result=0;
-        result=kilometer*393370;
-        label.setText(result+"zoll");
+
+    private void meterToZentimeter(double meter) {
+        double result = 0;
+        result = meter * 100;
+        label.setText(result + " cm");
     }
-    private void kilometertoFuß(double kilometer){
-        double result=0;
-        result=kilometer*3281;
-        label.setText(result+"fuß");
+
+    private void zentimeterToMeter(double zentimeter) {
+        double result = 0;
+        result = zentimeter / 100;
+        label.setText(result + " m");
     }
-    private void kilometertoYard(double kilometer){
-        double result=0;
-        result=kilometer*1094;
-        label.setText(result+"yard");
+
+    private void meterToDezimeter(double meter) {
+        double result = 0;
+        result = meter / 10;
+        label.setText(result + " dm");
     }
-    private void kilometertoMillimeter(double kilometer){
-        double result=0;
-        result=kilometer*1000000;
-        label.setText(result+"mm");
+
+    private void dezimeterToMeter(double dezimeter) {
+        double result = 0;
+        result = dezimeter / 10;
+        label.setText(result + " m");
     }
-    private void kilometertoZentimeter(double kilometer){
-        double result=0;
-        result=kilometer*100000;
-        label.setText(result+"cm");
+
+    private void meterToSeemeile(double meter) {
+        double result = 0;
+        result = meter / 1852;
+        label.setText(result + " seemeile");
     }
-    private void kilometertoDezimeter(double kilometer){
-        double result=0;
-        result=kilometer*10000;
-        label.setText(result+"dezimeter");
+
+    private void seemeileToMeter(double seemeile) {
+        double result = 0;
+        result = seemeile * 1852;
+        label.setText(result + " meter");
     }
-    private void kilometertoSeemeile(double kilometer){
-        double result=0;
-        result=kilometer/1.852;
-        label.setText(result+"seemeile");
+
+    private void meterToMeile(double meter) {
+        double result = 0;
+        result = meter / 1609 ;
+        label.setText(result + " seemeile");
     }
-    private void zolltoKilometer(double zoll){
-        double result=0;
-        result=zoll/39370;
-        label.setText(result"km");
+
+    private void meileToMeter(double meile) {
+        double result = 0;
+        result = meile * 1609;
+        label.setText(result + " meter");
     }
-    private void zolltoFuß(double zoll){
-        double result=0;
-        result=zoll/12;
-        label.setText(result"fuß");
+    private void kilometerToZoll(double kilometer) {
+        double result = 0;
+        result = kilometer * 393370;
+        label.setText(result + "zoll");
     }
-    private void zolltoYard(double zoll){
-        double result=0;
-        result=zoll/36;
-        label.setText(result"zoll");
+
+    private void kilometerToFuß(double kilometer) {
+        double result = 0;
+        result = kilometer * 3281;
+        label.setText(result + "fuß");
     }
-    private void zolltoMillimeter(double zoll){
-        double result=0;
-        result=zoll*25.4;
-        label.setText(result"mm");
+
+    private void kilometerToYard(double kilometer) {
+        double result = 0;
+        result = kilometer * 1094;
+        label.setText(result + "yard");
     }
-    private void zolltoZentimeter(double zoll){
-        double result=0;
-        result=zoll*2.54;
-        label.setText(result"cm");
+
+    private void kilometerToMillimeter(double kilometer) {
+        double result = 0;
+        result = kilometer * 1000000;
+        label.setText(result + "mm");
     }
-    private void zolltoDezimeter(double zoll){
-        double result=0;
-        result=zoll*0.254;
-        label.setText(result"dm");
+
+    private void kilometerToZentimeter(double kilometer) {
+        double result = 0;
+        result = kilometer * 100000;
+        label.setText(result + "cm");
     }
-    private void zolltoseemeilen(double zoll){
-        double result=0;
-        result=zoll*0.00013715;
-        label.setText(result"mm");
+
+    private void kilometerToDezimeter(double kilometer) {
+        double result = 0;
+        result = kilometer * 10000;
+        label.setText(result + "dezimeter");
     }
-    private void fußtoKilometer(double fuß){
-        double result=0;
-        result=fuß/3281;
-        label.setText(result"km");
+
+    private void kilometerToSeemeile(double kilometer) {
+        double result = 0;
+        result = kilometer / 1.852;
+        label.setText(result + "seemeile");
     }
-    private void fußtodezimeter(double fuß){
-        double result=0;
-        result=fuß/304.8;
-        label.setText(result"dm");
+
+    private void zollToKilometer(double zoll) {
+        double result = 0;
+        result = zoll / 39370;
+        label.setText(result + "km");
     }
-    private void fußtoZentimeter(double fuß){
-        double result=0;
-        result=fuß/;
-        label.setText(result"km");
+
+    private void zollToFuß(double zoll) {
+        double result = 0;
+        result = zoll / 12;
+        label.setText(result + "fuß");
     }
+
+    private void zollToYard(double zoll) {
+        double result = 0;
+        result = zoll / 36;
+        label.setText(result + "zoll");
+    }
+
+    private void zollToMillimeter(double zoll) {
+        double result = 0;
+        result = zoll * 25.4;
+        label.setText(result + "mm");
+    }
+
+    private void zollToZentimeter(double zoll) {
+        double result = 0;
+        result = zoll * 2.54;
+        label.setText(result + "cm");
+    }
+
+    private void zollToDezimeter(double zoll) {
+        double result = 0;
+        result = zoll * 0.254;
+        label.setText(result + "dm");
+    }
+
+    private void zollToSeemeilen(double zoll) {
+        double result = 0;
+        result = zoll * 0.00013715;
+        label.setText(result + "mm");
+    }
+
+    private void fußToKilometer(double fuß) {
+        double result = 0;
+        result = fuß / 3281;
+        label.setText(result + "km");
+    }
+
+    private void fußToDezimeter(double fuß) {
+        double result = 0;
+        result = fuß / 304.8;
+        label.setText(result + "dm");
+    }
+
+    private void fußToZentimeter(double fuß) {
+        double result = 0;
+        result = fuß * 30.48;
+        label.setText(result + "cm");
+    }
+
+    private void fußToZoll(double fuß) {
+        double result = 0;
+        result = fuß * 12;
+        label.setText(result + "zoll");
+    }
+    private void fußToYard(double fuß) {
+        double result = 0;
+        result = fuß / 3;
+        label.setText(result + "yard");
+    }
+    private void fußToMillimeter(double fuß) {
+        double result = 0;
+        result = fuß * 304.8;
+        label.setText(result + "mm");
+    }
+    private void fußToSeemeile(double fuß) {
+        double result = 0;
+        result = fuß / 6076;
+        label.setText(result + "seemeile");
+    }
+    private void yardToKilometer(double yard) {
+        double result = 0;
+        result = yard / 1094;
+        label.setText(result + "km");
+    }
+    private void yardToZoll(double yard) {
+        double result = 0;
+        result = yard / 36;
+        label.setText(result + "zoll");
+    }
+    private void yardToFuß(double yard) {
+        double result = 0;
+        result = yard * 3;
+        label.setText(result + "fuss");
+    }
+    private void yardToMillimeter(double yard) {
+        double result = 0;
+        result = yard * 914.4;
+        label.setText(result + "mm");
+    }
+    private void yardToZentimeter(double yard) {
+        double result = 0;
+        result = yard / 91.94;
+        label.setText(result + "cm");
+    }
+    private void yardToDezimeter(double yard) {
+        double result = 0;
+        result = yard / 9.194;
+        label.setText(result + "dm");
+    }
+    private void yardToSeemeile(double yard) {
+        double result = 0;
+        result = yard / 2025;
+        label.setText(result + "seemeile");
+    }
+    private void yardToMeile(double yard) {
+        double result = 0;
+        result = yard / 1760;
+        label.setText(result + "meile");
+    }
+    private void millimeterToKilometer(double millimeter) {
+        double result = 0;
+        result = millimeter / 1000000;
+        label.setText(result + "km");
+    }
+    private void millimeterToZoll(double millimeter) {
+        double result = 0;
+        result = millimeter / 25.4;
+        label.setText(result + "zoll");
+    }
+    private void millimeterToFuss(double millimeter) {
+        double result = 0;
+        result = millimeter / 304.8;
+        label.setText(result + "fuss");
+    }
+    private void millimeterToYard(double millimeter) {
+        double result = 0;
+        result = millimeter / 914.4;
+        label.setText(result + "yard");
+    }
+    private void millimeterToZentimeter(double millimeter) {
+        double result = 0;
+        result = millimeter / 10;
+        label.setText(result + "cm");
+    }
+    private void millimeterToDezimeter(double millimeter) {
+        double result = 0;
+        result = millimeter / 100;
+        label.setText(result + "dm");
+    }
+    private void millimeterToSeemeile(double millimeter) {
+        double result = 0;
+        result = millimeter / 1852000000;
+        label.setText(result + "seemeile");
+    }
+    private void millimeterToMeile(double millimeter) {
+        double result = 0;
+        result = millimeter / 1609000000;
+        label.setText(result + "meile");
+    }
+    private void zentimeterToKilometer(double zentimeter) {
+        double result = 0;
+        result = zentimeter / 1000000;
+        label.setText(result + "km");
+    }
+    private void zentimeterToZoll(double zentimeter) {
+        double result = 0;
+        result = zentimeter / 2.54;
+        label.setText(result + "zoll");
+    }
+    private void zentimeterToFuss(double zentimeter) {
+        double result = 0;
+        result = zentimeter / 30.48;
+        label.setText(result + "fuss");
+    }
+    private void zentimeterToYard(double zentimeter) {
+        double result = 0;
+        result = zentimeter / 91.44;
+        label.setText(result + "yard");
+    }
+    private void zentimeterToMillimeter(double zentimeter) {
+        double result = 0;
+        result = zentimeter * 10;
+        label.setText(result + "mm");
+    }
+    private void zentimeterToDezimeter(double zentimeter) {
+        double result = 0;
+        result = zentimeter / 10;
+        label.setText(result + "dm");
+    }
+    private void zentimeterToSeemeile(double zentimeter) {
+        double result = 0;
+        result = zentimeter / 185200;
+        label.setText(result + "seemeile");
+    }
+    private void zentimeterToMeile(double zentimeter) {
+        double result = 0;
+        result = zentimeter / 160900;
+        label.setText(result + "meile");
+    }
+    private void dezimeterToKilometer(double dezimeter) {
+        double result = 0;
+        result = dezimeter / 100000;
+        label.setText(result + "km");
+    }
+    private void dezimeterToZoll(double dezimeter) {
+        double result = 0;
+        result = dezimeter / 0.254;
+        label.setText(result + "zoll");
+    }
+    private void dezimeterToFuss(double dezimeter) {
+        double result = 0;
+        result = dezimeter * 3.048;
+        label.setText(result + "fuss");
+    }
+    private void dezimeterToYard(double dezimeter) {
+        double result = 0;
+        result = dezimeter * 9.144;
+        label.setText(result + "yard");
+    }
+    private void dezimeterToMillimeter(double dezimeter) {
+        double result = 0;
+        result = dezimeter * 100;
+        label.setText(result + "mm");
+    }
+    private void dezimeterToZentimeter(double dezimeter) {
+        double result = 0;
+        result = dezimeter / 10;
+        label.setText(result + "cm");
+    }
+    private void dezimeterToSeemeile(double dezimeter) {
+        double result = 0;
+        result = dezimeter / 18520;
+        label.setText(result + "seemeile");
+    }
+    private void dezimeterToMeile(double dezimeter) {
+        double result = 0;
+        result = dezimeter / 16093.4;
+        label.setText(result + "meile");
+    }
+    private void seemeileToKilometer(double seemeile) {
+        double result = 0;
+        result = seemeile * 1.852;
+        label.setText(result + "km");
+    }
+    private void seemeileToZoll(double seemeile) {
+        double result = 0;
+        result = seemeile * 72910;
+        label.setText(result + "zoll");
+    }
+    private void seemeileToFuss(double seemeile) {
+        double result = 0;
+        result = seemeile * 6076;
+        label.setText(result + "fuss");
+    }
+    private void seemeileToYard(double seemeile) {
+        double result = 0;
+        result = seemeile * 2025;
+        label.setText(result + "yard");
+    }
+    private void seemeileToMillimeter(double seemeile) {
+        double result = 0;
+        result = seemeile * 1852000000;
+        label.setText(result + "mm");
+    }
+    private void seemeileToZentimeter(double seemeile) {
+        double result = 0;
+        result = seemeile * 185200;
+        label.setText(result + "cm");
+    }
+    private void seemeileToDezimeter(double seemeile) {
+        double result = 0;
+        result = seemeile * 18520;
+        label.setText(result + "dm");
+    }
+    private void seemeileToMeile(double seemeile) {
+        double result = 0;
+        result = seemeile * 1.151;
+        label.setText(result + "meile");
+    }
+    private void meileToKilometer(double meile) {
+        double result = 0;
+        result = meile * 1.609;
+        label.setText(result + "km");
+    }
+    private void meileToZoll(double meile) {
+        double result = 0;
+        result = meile * 63360;
+        label.setText(result + "zoll");
+    }
+    private void meileToFuss(double meile) {
+        double result = 0;
+        result = meile * 5280;
+        label.setText(result + "fuss");
+    }
+    private void meileToYard(double meile) {
+        double result = 0;
+        result = meile * 1760;
+        label.setText(result + "yard");
+    }
+
+
+
+
     private void hello() {
         Dialog.show("Hello Codename One", "Welcome to Codename One", "OK", null);
     }
 
+
+    // Länge
+
+
+
+
+    public void Umrechner(String von, String zu) {
+        String Wert = eingabeWert.getText();
+        double doubleWert = Double.parseDouble(Wert);
+
+        if (von.equals("meter") && zu.equals("cm")) {
+            meterToZentimeter(doubleWert);
+        } else if (von.equals("meter") && zu.equals("dezimeter")) {
+            meterToDezimeter(doubleWert);
+        } else if (von.equals("meter") && zu.equals("millimeter")) {
+            meterToMillimeter(doubleWert);
+        } else if () {
+
+        }
+
+        /*
+        else {
+            System.out.println("Mist, habe ich Idiot vergessen!!!");
+        }
+        */
+
+    }
 }
